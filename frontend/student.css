@@ -1,0 +1,305 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #17243b;
+    background: #f4f7fb;
+}
+
+body {
+    margin: 0;
+}
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 230px;
+    padding: 28px 18px;
+    background: #111f38;
+    color: white;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 13px;
+    margin: 7px 0;
+    border-radius: 8px;
+    color: #dce5f4;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #263a5c;
+}
+
+.powered {
+    position: absolute;
+    bottom: 20px;
+    color: #a9b8ce;
+    font-size: 12px;
+}
+
+.main {
+    margin-left: 230px;
+    padding: 30px;
+}
+
+.topbar, .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+h1 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+p {
+    color: #728098;
+}
+
+.topbar p, .section-heading p {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.status {
+    color: #168153;
+    background: #e2f7ec;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.welcome {
+    margin-top: 28px;
+    padding: 28px;
+    border-radius: 16px;
+    color: white;
+    background: linear-gradient(120deg, #172d52, #176bc1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome h2 {
+    font-size: 27px;
+}
+
+.welcome p {
+    color: #d9e7fb;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.cloud-icon {
+    font-size: 65px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 22px 0;
+}
+
+.card, .panel {
+    background: white;
+    border: 1px solid #e7ecf3;
+    border-radius: 13px;
+    padding: 22px;
+}
+
+.card h2 {
+    font-size: 22px;
+}
+
+.card small {
+    color: #8995a8;
+}
+
+.panel {
+    margin: 22px 0;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+input:not([type="file"]) {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #dce3ed;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.search-row input {
+    flex: 1;
+}
+
+button {
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #176bc1;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    filter: brightness(.94);
+}
+
+button.secondary {
+    color: #344761;
+    background: #edf1f7;
+}
+
+button.danger {
+    background: #fff0ef;
+    color: #b52e2a;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+th, td {
+    padding: 14px 10px;
+    border-bottom: 1px solid #edf0f5;
+    white-space: nowrap;
+}
+
+th {
+    background: #f8fafd;
+    color: #718097;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+td button {
+    padding: 7px 10px;
+    margin: 2px;
+    font-size: 12px;
+}
+
+#uploadForm, #studentForm {
+    display: grid;
+    gap: 12px;
+}
+
+#uploadForm {
+    max-width: 500px;
+}
+
+#uploadForm input[type="file"] {
+    padding: 14px;
+    border: 1px dashed #b9c8db;
+    border-radius: 8px;
+}
+
+#uploadForm button {
+    justify-self: start;
+}
+
+dialog {
+    width: min(440px, calc(100% - 30px));
+    border: 0;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 20px 70px #10213a44;
+}
+
+dialog::backdrop {
+    background: #101d32aa;
+}
+
+dialog label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+        padding: 18px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        padding: 16px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 12px;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        padding: 8px;
+    }
+
+    .powered {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 14px;
+    }
+
+    .topbar, .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cloud-icon {
+        display: none;
+    }
+
+    .welcome {
+        padding: 20px;
+    }
+}

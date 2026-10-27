@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Smart Student Management</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>☁ AWS Student</h2>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#students">Students</a>
+        <a href="#documents">Documents</a>
+        <p class="powered">Powered by AWS Cloud</p>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <h1>Smart Student Management</h1>
+                <p>Manage student records from one dashboard.</p>
+            </div>
+            <span class="status">● Cloud Application</span>
+        </header>
+
+        <section id="dashboard" class="welcome">
+            <div>
+                <p class="eyebrow">ADMIN DASHBOARD</p>
+                <h2>Welcome back!</h2>
+                <p>Manage students and their documents securely.</p>
+            </div>
+            <div class="cloud-icon">☁</div>
+        </section>
+
+        <section class="stats">
+            <article class="card">
+                <p>Total Students</p>
+                <h2 id="totalStudents">0</h2>
+                <small>Stored in Amazon RDS</small>
+            </article>
+            <article class="card">
+                <p>Application Server</p>
+                <h2>Amazon EC2</h2>
+                <small>Python Flask backend</small>
+            </article>
+            <article class="card">
+                <p>Document Storage</p>
+                <h2>Amazon S3</h2>
+                <small>Cloud file storage</small>
+            </article>
+        </section>
+
+        <section id="students" class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Student Directory</h2>
+                    <p>View, add, edit, and delete student records.</p>
+                </div>
+                <button id="addStudentBtn">+ Add Student</button>
+            </div>
+
+            <div class="search-row">
+                <input id="searchInput" placeholder="Search students...">
+                <button class="secondary" id="refreshBtn">Refresh</button>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable">
+                        <tr><td colspan="5">Loading students...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p id="message" role="status"></p>
+        </section>
+
+        <section id="documents" class="panel">
+            <h2>Document Upload</h2>
+            <p>Upload a document to Amazon S3.</p>
+            <form id="uploadForm">
+                <input type="file" id="document" name="file" required>
+                <button type="submit">Upload Document</button>
+            </form>
+            <p id="uploadMessage" role="status"></p>
+        </section>
+    </main>
+
+    <dialog id="studentDialog">
+        <form id="studentForm">
+            <h2 id="dialogTitle">Add Student</h2>
+            <input type="hidden" id="studentId">
+
+            <label for="studentName">Student Name</label>
+            <input id="studentName" required maxlength="100">
+
+            <label for="studentEmail">Email</label>
+            <input id="studentEmail" type="email" required maxlength="255">
+
+            <label for="studentDepartment">Department</label>
+            <input id="studentDepartment" required maxlength="100">
+
+            <div class="dialog-actions">
+                <button type="button" class="secondary" id="cancelBtn">Cancel</button>
+                <button type="submit">Save Student</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
